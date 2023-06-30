@@ -1,0 +1,5 @@
+name: SkyblockManager
+version: 1.0.0
+main: fr.skyblock.main.main
+author: Julien
+description: A plugin that manages skyblock
