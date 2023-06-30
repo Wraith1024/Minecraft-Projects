@@ -35,3 +35,8 @@ Plugin Skyblock :
 	-	/sethome 			en midgame
 	-	/home 				en midgame
 	-	/fall-damage off		en midgame
+
+	Done :
+	
+	-	/is
+	-	Début de l'inventaire ( Menu de l'ile )
