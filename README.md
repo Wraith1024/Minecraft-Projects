@@ -34,4 +34,4 @@ Plugin Skyblock :
 	-	/night 				en midgame
 	-	/sethome 			en midgame
 	-	/home 				en midgame
-	-	/fall-damage off	en midgame
+	-	/fall-damage off		en midgame
