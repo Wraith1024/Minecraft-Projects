@@ -21,6 +21,14 @@ public class InventoryCommand implements CommandExecutor, Listener {
         this.plugin = plugin;
     }
 
+    public ItemStack new_item(String Name, Material mat) {
+    	ItemStack item = new ItemStack(mat);
+        ItemMeta itemMeta = item.getItemMeta();
+        itemMeta.setDisplayName(Name);
+        item.setItemMeta(itemMeta);
+		return item;	
+    }
+    
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
@@ -31,13 +39,10 @@ public class InventoryCommand implements CommandExecutor, Listener {
         Player player = (Player) sender;
         Inventory inventory = plugin.getServer().createInventory(null, 27, "Menu de l'ile");
 
-        // Fill the inventory with some items (just as an example)
-        
-        ItemStack teleportItem = new ItemStack(Material.GRASS_BLOCK);
-        ItemMeta teleportItemMeta = teleportItem.getItemMeta();
-        teleportItemMeta.setDisplayName("Go to Home");
-        teleportItem.setItemMeta(teleportItemMeta);
-        inventory.setItem(13, teleportItem);
+        inventory.setItem(11, new_item("Réglages de L'ile", Material.NETHER_STAR));
+        inventory.setItem(13, new_item("Votre profil", Material.PLAYER_HEAD));
+        inventory.setItem(15, new_item("Métiers | Objectifs", Material.EXPERIENCE_BOTTLE));
+        inventory.setItem(26, new_item("Fermer", Material.ARROW));
 
         // Open the inventory for the player
         player.openInventory(inventory);
@@ -52,12 +57,35 @@ public class InventoryCommand implements CommandExecutor, Listener {
             Player player = (Player) event.getWhoClicked();
             ItemStack clickedItem = event.getCurrentItem();
 
-            if (clickedItem != null && clickedItem.getType() == Material.GRASS_BLOCK) {
+            if (clickedItem != null && clickedItem.getType() == Material.NETHER_STAR) {
                 ItemMeta itemMeta = clickedItem.getItemMeta();
 
-                if (itemMeta != null && itemMeta.hasDisplayName() && itemMeta.getDisplayName().equalsIgnoreCase("Go to Home")) {
-                    player.sendMessage(ChatColor.GREEN + "Vous avez été téléporté sur votre Île");
-                    // Execute teleportation logic here
+                if (itemMeta != null && itemMeta.hasDisplayName() && itemMeta.getDisplayName().equalsIgnoreCase("Réglages de L'ile")) {
+                    player.sendMessage(ChatColor.GREEN + "Réglages");
+                }
+            }
+            
+            if (clickedItem != null && clickedItem.getType() == Material.PLAYER_HEAD) {
+                ItemMeta itemMeta = clickedItem.getItemMeta();
+
+                if (itemMeta != null && itemMeta.hasDisplayName() && itemMeta.getDisplayName().equalsIgnoreCase("Votre profil")) {
+                    player.sendMessage(ChatColor.GREEN + "Profil");
+                }
+            }
+            
+            if (clickedItem != null && clickedItem.getType() == Material.EXPERIENCE_BOTTLE) {
+                ItemMeta itemMeta = clickedItem.getItemMeta();
+
+                if (itemMeta != null && itemMeta.hasDisplayName() && itemMeta.getDisplayName().equalsIgnoreCase("Métiers | Objectifs")) {
+                    player.sendMessage(ChatColor.GREEN + "Metier | Objectifs");
+                }
+            }
+            
+            if (clickedItem != null && clickedItem.getType() == Material.ARROW) {
+                ItemMeta itemMeta = clickedItem.getItemMeta();
+
+                if (itemMeta != null && itemMeta.hasDisplayName() && itemMeta.getDisplayName().equalsIgnoreCase("Fermer")) {
+                    player.closeInventory();
                 }
             }
         }
