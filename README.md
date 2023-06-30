@@ -21,7 +21,6 @@ Plugin Skyblock :
 	To do :
 
 	-	Objectif : débloquer des trucs
-	-	/is -> Menu de gestion de l'ile
 	-	Shop -> Monnaies / trade objet vs objet // objet vs Monnaie // Monnaie vs Objet
 	-	Système de groupe sur une ile
 	-	Des iles a proximité de ton ile, afin de pousser a l expention de ton ile + objectif sur les iles trouvé
