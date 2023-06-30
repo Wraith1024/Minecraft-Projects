@@ -1,0 +1,27 @@
+name: AelenManager
+version: 1.0.0
+main: fr.julien.main.main
+author: Julien
+description: A plugin that manages various aspects of your server.
+commands:
+  sethome:
+    description: Set your home location
+    usage: /sethome
+  home:
+    description: Teleport to your home location
+    usage: /home
+  day:
+    description: set day
+    usage: /day
+  night:
+    description: set night
+    usage: /night
+  helper:
+    description: helper
+    usage: /helper
+  advert:
+    description: advert
+    usage: /advert player title subtitle
+  setrank:
+    description: setrank
+    usage: /setrank player rank
